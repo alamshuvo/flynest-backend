@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import { HomeRoutes } from '../modules/home/home.route';
 import { authRoutes } from '../modules/auth/auth.route';
+import { UserRoutes } from '../modules/user/user.route';
+import { studentRoutes } from '../modules/student/student.route';
 
 
 
@@ -16,6 +18,14 @@ const moduleRoutes = [
   {
     path:`${apiPrefix}/auth`,
     route: authRoutes,
+  },
+  {
+    path:`${apiPrefix}/users`,
+    route:UserRoutes
+  },
+  {
+    path:`${apiPrefix}/students`,
+    route:studentRoutes
   }
 ];
 

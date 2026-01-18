@@ -46,8 +46,8 @@ export const seedDatabase = async () => {
     console.log('Teachers created');
 //   class seeding
     const classNames = [
-      { name: 'Math', section: 'A' },
-      { name: 'Science', section: 'B' },
+      { name: 'Eight', section: 'A' },
+      { name: 'Nine', section: 'B' },
     ];
 
     for (const cls of classNames) {
@@ -67,13 +67,13 @@ export const seedDatabase = async () => {
     for (let i = 0; i < studentNames.length; i++) {
       const name = studentNames[i];
       const classAssigned = classes[i % classes.length];
-
+    
       const exists = await prisma.student.findFirst({ where: { name } });
       if (!exists) {
         await prisma.student.create({
           data: {
             name,
-            age: 10 + i, // dummy age
+            age: 10 + i, 
             class_id: classAssigned.id,
           },
         });
