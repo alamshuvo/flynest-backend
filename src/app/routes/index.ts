@@ -3,6 +3,7 @@ import { HomeRoutes } from '../modules/home/home.route';
 import { authRoutes } from '../modules/auth/auth.route';
 import { UserRoutes } from '../modules/user/user.route';
 import { studentRoutes } from '../modules/student/student.route';
+import { classesRoutes } from '../modules/class/class.route';
 
 
 
@@ -26,6 +27,10 @@ const moduleRoutes = [
   {
     path:`${apiPrefix}/students`,
     route:studentRoutes
+  },
+  {
+    path:`${apiPrefix}/classes`,
+    route:classesRoutes
   }
 ];
 
