@@ -11,6 +11,8 @@ Its a simple school management system,
 ## 📃 Documentation
 
 - **Backend Live API:** [Flynest backend server](https://backend-flynest.vercel.app/)
+- **Admin Data:** - admin@example.com password: admin123
+- **Teacher Data:** - teacher1@example.com password: teacher123
 
 ---
 
