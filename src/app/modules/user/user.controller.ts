@@ -3,13 +3,14 @@ import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendResponse";
 import httpStatus from "http-status";
 import { UserService } from "./user.service";
-import { IAuthUser } from "../../interface/common";
+import { IAuthUser, SignupPayload } from "../../interface/common";
+import { CreateUserDto } from "../../dtos/createUser.dto";
 // import { userService } from './user.service';
 // import pick from '../../../shared/pick';
 // import { userFilterAbleFields } from './user.const';
 
 const insertUserIntoDB = catchAsync(async (req: Request, res: Response) => {
-  const data = req.body;
+  const data:SignupPayload = req.body;
   console.log(data);
   const result = await UserService.signup(data);
   sendResponse(res, {
