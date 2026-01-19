@@ -1,37 +1,54 @@
-/* eslint-disable no-console */
-import { Server } from 'http';
+// src/index.ts  (or rename to server.ts if you prefer)
+import express, { type Application } from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import config from './app/config';
-import app from './app';
-import  { seedDatabase } from './app/DB';
+import router from './app/routes';
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
+import notFound from './app/middlewares/NotFound';
+import { seedDatabase } from './app/DB';
+
+const app: Application = express();
+// Middleware 
+const corsOptions = {
+  origin: ['http://localhost:3000'], // ← add your production frontend domain later
+  methods: '*',
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(express.json());
+app.use(cors(corsOptions));
+app.use(cookieParser());
+app.use('/', router);
+app.use(globalErrorHandler);
+app.use(notFound);
 
 
-
-let server: Server | null = null;
-const main = async () => {
+const start = async () => {
   try {
-     await seedDatabase();
-    server = app.listen(config.port, () => {
-      console.log(`App running on http://localhost:${config.port}`);
+    console.log('Seeding database...');
+    await seedDatabase();
+    console.log('Database seeded successfully');
+  } catch (err) {
+    console.error('Seeding failed:', err);
+  }
+
+
+  const isVercel = !!process.env.VERCEL;
+  if (!isVercel) {
+    const port = config.port || 5000;
+    app.listen(port, () => {
+      console.log(`Server running locally → http://localhost:${port}`);
     });
-  } catch (error) {
-    console.log(error);
   }
 };
 
-main();
-
-process.on('unhandledRejection', () => {
-  // console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-  if (server) {
-    server.close(() => {
-      process.exit(1);
-    });
-  } else {
-    process.exit(1);
-  }
-});
-
-process.on('uncaughtException', (error) => {
-  console.error('Uncaught Exception:', error);
+// Run startup immediately
+start().catch((err) => {
+  console.error('Fatal startup error:', err);
   process.exit(1);
 });
+
+// ── Very important for Vercel ────────────────────────────────
+export default app;

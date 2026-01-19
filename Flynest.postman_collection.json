@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "f759f948-4d2e-401c-84e3-5e3f1c98c3eb",
+		"name": "Flynest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40292159"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"item": [
+				{
+					"name": "Home URL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "refreshToken",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyN2Q5Y2MwLWY5NGEtNGY0My05ZjFlLTdiNmQ1ZTZhZjYyMSIsIm5hbWUiOiIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzY4NzM4MjYwLCJleHAiOjE3Njg3NDE4NjB9.l3Et-dfWlreC3cUN4-U2mjugrvXz0PPvIYzk8m3XERk",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/auth/refresh-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Signup User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"iftakhar\",\n    \"email\":\"iftakharalamshuvo11@gmail.com\",\n    \"password\":\"alamshuvo\",\n    \"role\":\"STUDENT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All form Db by Admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyN2Q5Y2MwLWY5NGEtNGY0My05ZjFlLTdiNmQ1ZTZhZjYyMSIsIm5hbWUiOiIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzY4NzQxNDg0LCJleHAiOjE3Njg3NDUwODR9.3Qxq2Rul26e3twyVcYxkLt9yD3D4UDejmtq1115R_Nk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Me Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyN2Q5Y2MwLWY5NGEtNGY0My05ZjFlLTdiNmQ1ZTZhZjYyMSIsIm5hbWUiOiIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzY4NzQxNDg0LCJleHAiOjE3Njg3NDUwODR9.3Qxq2Rul26e3twyVcYxkLt9yD3D4UDejmtq1115R_Nk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyN2Q5Y2MwLWY5NGEtNGY0My05ZjFlLTdiNmQ1ZTZhZjYyMSIsIm5hbWUiOiIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzY4NzUwMDA3LCJleHAiOjE3Njg3NTM2MDd9.J2DWOck_gmGe4YHSBjeOPbQM-nHQhMAHfMDiSJvhhaA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"iftakhajr\",\n    \"age\": 12,\n    \"class_id\": \"0145e18a-925a-498d-ad94-89ff758aa24c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all students by admin or Teacher",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyN2Q5Y2MwLWY5NGEtNGY0My05ZjFlLTdiNmQ1ZTZhZjYyMSIsIm5hbWUiOiIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzY4NzUwMDA3LCJleHAiOjE3Njg3NTM2MDd9.J2DWOck_gmGe4YHSBjeOPbQM-nHQhMAHfMDiSJvhhaA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single student",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "class",
+			"item": [
+				{
+					"name": "class create by admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyN2Q5Y2MwLWY5NGEtNGY0My05ZjFlLTdiNmQ1ZTZhZjYyMSIsIm5hbWUiOiIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzY4NzUwMDA3LCJleHAiOjE3Njg3NTM2MDd9.J2DWOck_gmGe4YHSBjeOPbQM-nHQhMAHfMDiSJvhhaA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Five\",\n    \"section\":\"A\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/classes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enroll student in a class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyN2Q5Y2MwLWY5NGEtNGY0My05ZjFlLTdiNmQ1ZTZhZjYyMSIsIm5hbWUiOiIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzY4NzU0NDUyLCJleHAiOjE3Njg3NTgwNTJ9.Ik1S2NaNaXMHVTWf3RA8rM0g49c-31VumcEodQIJF9Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"student_id\":\"4729294b-5819-4567-a535-85f161678527\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/classes/0145e18a-925a-498d-ad94-89ff758aa24c/enroll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"classes",
+								"0145e18a-925a-498d-ad94-89ff758aa24c",
+								"enroll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Students of a class",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

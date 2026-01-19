@@ -11,7 +11,7 @@ const createClass = catchAsync(async (req: Request, res: Response) => {
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "Student created Sucessfully by admin ",
+      message: "Class created Sucessfully",
       data: {
         result,
       },

@@ -4,10 +4,6 @@ import sendResponse from "../../utils/sendResponse";
 import httpStatus from "http-status";
 import { UserService } from "./user.service";
 import { IAuthUser, SignupPayload } from "../../interface/common";
-import { CreateUserDto } from "../../dtos/createUser.dto";
-// import { userService } from './user.service';
-// import pick from '../../../shared/pick';
-// import { userFilterAbleFields } from './user.const';
 
 const insertUserIntoDB = catchAsync(async (req: Request, res: Response) => {
   const data:SignupPayload = req.body;
@@ -22,10 +18,6 @@ const insertUserIntoDB = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
-  //   const filters = pick(req.query, userFilterAbleFields);
-
-  //   const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
-
   const result = await UserService.getAllFormDb();
 
   sendResponse(res, {

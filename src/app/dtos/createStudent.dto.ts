@@ -2,7 +2,6 @@ import {
     IsNotEmpty,
     IsNumber,
     IsString,
-    IsUUID,
     MinLength,
   
   } from "class-validator";
